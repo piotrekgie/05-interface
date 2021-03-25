@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import './Dialog.css';
 import {Button} from "../Form";
 
-function Dialog({open, handleClick}) {
+function Dialog({open, handleShowClick, handleConfirmClick, handleAbortClick, confirm, abort}) {
     const styles = {
         display: open ? 'block' : 'none'
     }
@@ -14,7 +14,7 @@ function Dialog({open, handleClick}) {
             <div className="dialog-container">
                 <div className="dialog">
                     <h6>Dialog title</h6>
-                    <Button handleClick={handleClick} margin="0" padding="5">
+                    <Button className="close" handleClick={handleShowClick} margin="0" padding="5">
                         <span>X</span>
                     </Button>
                     <div>
@@ -28,6 +28,16 @@ function Dialog({open, handleClick}) {
                         nisl
                         consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
                     </div>
+                    {confirm &&
+                    <Button bgColor="blue" handleClick={handleConfirmClick}>
+                        <span>Confirm</span>
+                    </Button>
+                    }
+                    {abort &&
+                    <Button bgColor="red" handleClick={handleAbortClick}>
+                        <span>Abort</span>
+                    </Button>
+                    }
                 </div>
             </div>
         </div>

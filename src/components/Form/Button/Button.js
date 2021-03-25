@@ -1,15 +1,15 @@
 import React from "react";
 
-function Button({handleClick, margin, padding, children}) {
+function Button({className, handleClick, bgColor, color, margin, padding, children}) {
     const styles = {
-        backgroundColor: 'black',
-        color: 'white',
+        backgroundColor: bgColor || 'black',
+        color: color || 'white',
         margin: margin || 20,
         padding: padding || 20,
     };
 
     return (
-        <button style={styles} onClick={handleClick}>
+        <button className={className} style={styles} onClick={handleClick}>
             <span>{children}</span>
         </button>
     )
