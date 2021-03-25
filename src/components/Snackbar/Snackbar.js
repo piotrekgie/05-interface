@@ -2,9 +2,10 @@ import React, {useEffect, useState} from "react";
 
 import './Snackbar.css';
 
-function Snackbar({type, horizontalPosition, verticalPosition, time = 5000, setVisible}) {
+function Snackbar({type, horizontalPosition, verticalPosition, time, setVisible}) {
     let backgroundColor = "";
     let bottom = 'auto';
+    let color = "black";
     let content = "";
     let left = 'auto';
     let right = 'auto';
@@ -16,6 +17,7 @@ function Snackbar({type, horizontalPosition, verticalPosition, time = 5000, setV
             backgroundColor = '#ff9800';
             break;
         case 'success':
+            color = 'white';
             content = 'This is a success message';
             backgroundColor = '#4caf4b';
             break;
@@ -24,6 +26,7 @@ function Snackbar({type, horizontalPosition, verticalPosition, time = 5000, setV
             backgroundColor = '#2196f3';
             break;
         case 'error':
+            color = 'white';
             content = 'This is a error message';
             backgroundColor = '#f44336';
             break;
@@ -56,6 +59,7 @@ function Snackbar({type, horizontalPosition, verticalPosition, time = 5000, setV
     const styles = {
         backgroundColor: backgroundColor,
         bottom: bottom,
+        color: color,
         left: left,
         right: right,
         top: top
