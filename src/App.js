@@ -6,6 +6,7 @@ import {Button} from "./components/Form";
 
 function App() {
     const [modal, setModal] = useState(false);
+    const [visible, setSnackbarVisible] = useState(true);
     const [processType, setProcessType] = useState('');
 
     const handleShowClick = () => {
@@ -22,6 +23,7 @@ function App() {
 
     const handleSnackbarClick = (type) => {
         setProcessType(type);
+        setSnackbarVisible(true);
     }
 
     return (
@@ -29,16 +31,24 @@ function App() {
             <Button handleClick={handleShowClick}>
                 <span>Show dialog</span>
             </Button>
-            <Button handleClick={(e) => {handleSnackbarClick('success')}}>
+            <Button handleClick={(e) => {
+                handleSnackbarClick('success')
+            }}>
                 <span>Show success</span>
             </Button>
-            <Button handleClick={(e) => {handleSnackbarClick('warning')}}>
+            <Button handleClick={(e) => {
+                handleSnackbarClick('warning')
+            }}>
                 <span>Show warning</span>
             </Button>
-            <Button handleClick={(e) => {handleSnackbarClick('information')}}>
+            <Button handleClick={(e) => {
+                handleSnackbarClick('information')
+            }}>
                 <span>Show information</span>
             </Button>
-            <Button handleClick={(e) => {handleSnackbarClick('error')}}>
+            <Button handleClick={(e) => {
+                handleSnackbarClick('error')
+            }}>
                 <span>Show error</span>
             </Button>
             <Dialog
@@ -51,7 +61,15 @@ function App() {
                 confirm="true"
                 abort="true"
             />
-            <Snackbar type={processType} horizontalPosition="center" verticalPosition="center"/>
+            {visible &&
+            <Snackbar
+                type={processType}
+                horizontalPosition="center"
+                verticalPosition="center"
+                time="4000"
+                setVisible={setSnackbarVisible}
+            />
+            }
         </>
     );
 }

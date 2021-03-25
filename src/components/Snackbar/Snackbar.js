@@ -1,9 +1,8 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 
 import './Snackbar.css';
 
-function Snackbar({type, horizontalPosition, verticalPosition}) {
-
+function Snackbar({type, horizontalPosition, verticalPosition, time = 5000, setVisible}) {
     let backgroundColor = "";
     let bottom = 'auto';
     let content = "";
@@ -61,6 +60,14 @@ function Snackbar({type, horizontalPosition, verticalPosition}) {
         right: right,
         top: top
     }
+
+    useEffect(() => {
+        const timer = setTimeout(function () {
+            setVisible(false);
+        }, time)
+
+        return () => clearTimeout(timer);
+    }, [])
 
     return (
         <div style={styles} className="snackbar-wrapper">
