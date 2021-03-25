@@ -1,6 +1,7 @@
 .dialog-wrapper {
     inset: 0;
     position: fixed;
+    text-align: left;
     z-index: 999;
 }
 

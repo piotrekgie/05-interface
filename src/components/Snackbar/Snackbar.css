@@ -3,7 +3,7 @@
     color: white;
     display: flex;
     font-weight: 500;
-    padding: 6px 16px;
+    padding: 25px;
     position: absolute;
     z-index: 1000;
 }

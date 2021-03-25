@@ -1,0 +1,29 @@
+.menu-trigger {
+    position: fixed;
+    width: 165px;
+}
+
+.menu {
+    background-color: black;
+    position: fixed;
+    text-align: center;
+    top: 60px;
+    width: 165px;
+}
+
+.menu a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 20px;
+    border: 1px solid white;
+}
+
+.menu a:active, .menu a.selected {
+    background-color: red;
+}
+
+.menu .close {
+    position: absolute;
+    right: -30px;
+}
