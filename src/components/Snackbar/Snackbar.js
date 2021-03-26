@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 
 import './Snackbar.css';
 
@@ -30,6 +30,8 @@ function Snackbar({type, horizontalPosition, verticalPosition, time, setVisible}
             content = 'This is a error message';
             backgroundColor = '#f44336';
             break;
+        default:
+            break;
     }
 
     switch (verticalPosition) {
@@ -42,6 +44,8 @@ function Snackbar({type, horizontalPosition, verticalPosition, time, setVisible}
         case 'bottom':
             bottom = '0';
             break;
+        default:
+            break;
     }
 
     switch (horizontalPosition) {
@@ -53,6 +57,8 @@ function Snackbar({type, horizontalPosition, verticalPosition, time, setVisible}
             break;
         case 'right':
             right = '0';
+            break;
+        default:
             break;
     }
 

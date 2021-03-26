@@ -6,6 +6,7 @@ import {Button} from "./components/Form";
 import Dialog from "./components/Dialog/Dialog";
 import Snackbar from "./components/Snackbar/Snackbar";
 import Menu from "./components/Menu";
+import {UsersContainer} from "./components/User";
 
 function App() {
     const [modal, setModal] = useState(false);
@@ -91,6 +92,11 @@ function App() {
                             setVisible={setSnackbarVisible}
                         />
                         }
+                    </div>
+                </Route>
+                <Route path="/exercise-4">
+                    <div className="users-list">
+                        <UsersContainer/>
                     </div>
                 </Route>
             </Switch>

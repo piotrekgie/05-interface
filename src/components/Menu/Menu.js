@@ -12,6 +12,7 @@ function Menu({handleShowClick}) {
             </Button>
             <NavLink exact to="/exercise-1" activeClassName="selected">Ex1 - Dialog</NavLink>
             <NavLink exact to="/exercise-2" activeClassName="selected">Ex2 - Snackbars</NavLink>
+            <NavLink exact to="/exercise-4" activeClassName="selected">Ex4 - Users list</NavLink>
         </div>
     )
 }

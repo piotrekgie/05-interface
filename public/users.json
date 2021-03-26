@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Jan",
+    "surname": "Kowalski",
+    "age": 35
+  },
+  {
+    "id": 2,
+    "name": "Paweł",
+    "surname": "Nowak",
+    "age": 18
+  },
+  {
+    "id": 3,
+    "name": "John",
+    "surname": "McLemon",
+    "age": 11
+  },
+  {
+    "id": 4,
+    "name": "Gutek",
+    "surname": "Morgan",
+    "age": 20
+  }
+]
