@@ -1,13 +1,13 @@
 import React from "react";
 
-import User from "../User";
+import {User} from "../User";
 import './UsersList.css';
 
-function UsersList({usersData}) {
+function UsersList({usersData, handleUserClick, selectedUser}) {
     return (
         <>
             {usersData.map((user, index) =>
-                <User key={`user-${index}`} data={user}/>
+                <User key={`user-${index}`} data={user} handleUserClick={handleUserClick} selectedUser={selectedUser}/>
             )}
         </>
     )

@@ -6,13 +6,15 @@ import {Button} from "./components/Form";
 import Dialog from "./components/Dialog/Dialog";
 import Snackbar from "./components/Snackbar/Snackbar";
 import Menu from "./components/Menu";
-import {UsersContainer} from "./components/User";
+import {UsersContainer, UserDetails} from "./components/User";
 
 function App() {
     const [modal, setModal] = useState(false);
     const [visibleSnackbar, setSnackbarVisible] = useState(true);
     const [processType, setProcessType] = useState('');
     const [showMenu, setShowMenu] = useState(false);
+    const [selectedUser, setSelectedUser] = useState('');
+    const [selectedUserData, setSelectedUserData] = useState([]);
 
     const handleShowClick = () => {
         setModal(!modal);
@@ -33,6 +35,11 @@ function App() {
 
     const handleShowMenuClick = () => {
         setShowMenu(!showMenu);
+    }
+
+    const handleUserClick = (e) => {
+        setSelectedUser(e.target.getAttribute('data-user-id'));
+        setSelectedUserData(e.target.getAttribute('data-user'));
     }
 
     return (
@@ -94,9 +101,14 @@ function App() {
                         }
                     </div>
                 </Route>
-                <Route path="/exercise-4">
+                <Route path="/users">
                     <div className="users-list">
-                        <UsersContainer/>
+                        <UsersContainer handleUserClick={handleUserClick} selectedUser={selectedUser}/>
+                    </div>
+                </Route>
+                <Route path="/user-profile">
+                    <div className="user-details-wrapper">
+                        <UserDetails selectedUser={selectedUser} selectedUserData={selectedUserData}/>
                     </div>
                 </Route>
             </Switch>

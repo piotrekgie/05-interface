@@ -1,0 +1,8 @@
+.user-details > div {
+    padding: 10px 0;
+}
+
+.user-details > div label {
+    font-weight: bold;
+    padding-right: 10px;
+}

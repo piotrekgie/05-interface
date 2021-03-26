@@ -1,11 +1,14 @@
 .users-list .user-row {
     border-bottom: 1px solid black;
-    margin: 20px 40px 20px 10px;
-    padding-bottom: 20px;
+    padding: 20px 40px 20px 10px;
     cursor: pointer;
 }
 
 .users-list .user-row:first-child {
     border-top: 1px solid black;
     padding-top: 20px;
+}
+
+.users-list .user-row.selected {
+    background-color: red;
 }

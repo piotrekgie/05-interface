@@ -4,7 +4,7 @@ import './UserContainer.css';
 import Search from "../Search";
 import UsersList from "../UsersList";
 
-function UsersContainer() {
+function UsersContainer({handleUserClick, selectedUser}) {
     const [usersJson, setUsersJson] = useState([]);
     const [users, setUsers] = useState([]);
     const [searchValue, setSearchValue] = useState('');
@@ -67,7 +67,7 @@ function UsersContainer() {
                     clearSearch={clearSearch}
                 />
                 {users && users.length &&
-                    <UsersList usersData={users}/>
+                    <UsersList usersData={users} handleUserClick={handleUserClick} selectedUser={selectedUser}/>
                 }
             </div>
         </>

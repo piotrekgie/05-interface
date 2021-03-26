@@ -1,4 +1,8 @@
 .users-list {
+    padding-top: 10px;
+}
+
+.users-list, .user-details-wrapper {
     margin-left: 195px;
     text-align: center;
 }
