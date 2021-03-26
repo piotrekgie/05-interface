@@ -32,7 +32,7 @@ function UsersContainer({handleUserClick, selectedUser}) {
             let filterUsers = usersJson;
 
             if (value !== '') {
-                filterUsers = users.filter((data) => {
+                filterUsers = usersJson.filter((data) => {
                     if (data.name.toLowerCase().includes(value) || data.surname.toLowerCase().includes(value)) {
                         return data;
                     }
