@@ -6,7 +6,7 @@ import {Button} from "../../Form";
 
 function Search({searchHandle, searchValue, clearSearch, searchChange}) {
     return (
-        <div>
+        <div className="search-wrapper">
             <Input label="Search user " onKeyDown={searchHandle} value={searchValue} onChange={(e) => searchChange(e)}/>
             <Button handleClick={clearSearch} margin="0 10px" padding="0 5px">
                 <span>Clear</span>
