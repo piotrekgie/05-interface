@@ -5,7 +5,10 @@ import Search from "../Search";
 import UsersList from "../UsersList";
 
 function UsersContainer() {
+    const [usersJson, setUsersJson] = useState([]);
     const [users, setUsers] = useState([]);
+    const [searchValue, setSearchValue] = useState('');
+
     const getUsersData = () => {
         fetch(
             'users.json',
@@ -18,8 +21,35 @@ function UsersContainer() {
         ).then((response) => {
             return response.json();
         }).then((data) => {
+            setUsersJson(data);
             setUsers(data);
         })
+    }
+
+    const searchHandle = (e) => {
+        if (e.key === 'Enter') {
+            const value = e.target.value.toLowerCase();
+            let filterUsers = usersJson;
+
+            if (value !== '') {
+                filterUsers = users.filter((data) => {
+                    if (data.name.toLowerCase().includes(value) || data.surname.toLowerCase().includes(value)) {
+                        return data;
+                    }
+                })
+            }
+
+            setUsers(filterUsers);
+        }
+    }
+
+    const clearSearch = () => {
+        setSearchValue('');
+        setUsers(usersJson);
+    }
+
+    const handleSearchChange = (e) => {
+        setSearchValue(e.target.value);
     }
 
     useEffect(() => {
@@ -27,12 +57,20 @@ function UsersContainer() {
     }, [])
 
     return (
-        <div>
-            <Search/>
-            {users && users.length &&
-                <UsersList usersData={users}/>
-            }
-        </div>
+        <>
+            <div>
+                <Search
+                    usersData={users}
+                    searchHandle={(e) => searchHandle(e)}
+                    searchChange={(e) => handleSearchChange(e)}
+                    searchValue={searchValue}
+                    clearSearch={clearSearch}
+                />
+                {users && users.length &&
+                    <UsersList usersData={users}/>
+                }
+            </div>
+        </>
     )
 }
 
