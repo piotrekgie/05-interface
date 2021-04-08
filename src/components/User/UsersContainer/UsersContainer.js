@@ -33,7 +33,9 @@ function UsersContainer({handleUserClick, selectedUser}) {
 
             if (value !== '') {
                 filterUsers = usersJson.filter((data) => {
-                    if (data.name.toLowerCase().includes(value) || data.surname.toLowerCase().includes(value)) {
+                    const fullName = data.name.toLowerCase() + ' ' + data.surname.toLowerCase();
+
+                    if (fullName.includes(value)) {
                         return data;
                     }
                 })
